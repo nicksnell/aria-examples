@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>ARIA Alerts</title>
+</head>
+<body>
+	<h1>ARIA Alerts</h1>
+	<button id="trigger" role="button">Trigger</button>
+	<div id="alert" role="alert"></div>
+	<script type="text/template" id="template">
+        <p>This is an alert!</p>
+  	</script>
+	<hr aria-hidden="true">
+	<code aria-hidden="true">
+		<pre>
+&lt;button id="trigger" role="button"&gt;Trigger&lt;/button&gt;
+&lt;div id="alert" role="alert"&gt;&lt;/div&gt;
+&lt;script type="text/template" id="template"&gt;
+  &lt;p&gt;This is an alert!&lt;/p&gt;
+&lt;/script&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+  var button = document.getElementById('trigger')
+  button.addEventListener('click', function() {
+    var template = document.getElementById('template').innerHTML
+	document.getElementById('alert').innerHTML = template
+  })
+})
+&lt;/script&gt;
+		</pre>
+	</code>
+	<hr aria-hidden="true">
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  	var button = document.getElementById('trigger')
+	  	button.addEventListener('click', function() {
+		  	var template = document.getElementById('template').innerHTML
+			document.getElementById('alert').innerHTML = template
+	  	})
+	})
+	</script>
+</body>
+</html>

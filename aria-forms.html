@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>ARIA Forms</title>
+</head>
+<body>
+	<h1>ARIA Forms</h1>
+	<form action="" aria-labelledby="iamlegend">
+		<fieldset>
+			<legend id="iamlegend">Your Details Form</legend>
+			<div class="item">
+				<label for="firstName">First Name</label>
+				<input type="text" id="firstName" required tabindex="0">
+				<div id="firstNameAlert" role="alert" aria-live="assertive"></div>
+			</div>
+			<div class="item">
+				<label for="lastName">Last Name</label>
+				<input type="text" id="lastName" required tabindex="1">
+			</div>
+			<div class="item">
+				<label for="postcode">Postcode</label>
+				<input type="text" id="postcode" required tabindex="2">
+			</div>
+			<div class="item">
+				<label for="message">Message</label>
+				<textarea id="message" tabindex="3"></textarea>
+				<button type="button" id="clear" aria-describedby="clearMessage" tabindex="5">
+					Clear Message
+				</button>
+				<p id="clearMessage">Clearing the message will remove the text that
+					has been input into the message box.</p>
+			</div>
+			<div class="item">
+				<label for="agree">Agree with things?</label>
+				<input type="checkbox" id="agree" tabindex="4">
+			</div>
+		</fieldset>
+		<button type="submit" tabindex="6">Submit the form</button>
+	</form>
+	<hr aria-hidden="true">
+	<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  	document.getElementById('firstName').addEventListener('blur', function() {
+		  	var firstNameEl = document.getElementById('firstName')
+			if (firstNameEl.value.length <= 3) {
+				firstNameEl.setAttribute('aria-invalid', 'true')
+				document.getElementById('firstNameAlert').innerHTML = 'First name must be longer than 3 characters!'
+			} else {
+				firstNameEl.setAttribute('aria-invalid', 'false')
+				document.getElementById('firstNameAlert').innerHTML = ''
+			}
+	  	})
+
+		document.getElementById('clear').addEventListener('click', function() {
+		  	document.getElementById('message').value = ''
+			return false
+	  	})
+	})
+	</script>
+</body>
+</html>

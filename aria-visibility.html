@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>ARIA Visibility</title>
+</head>
+<body>
+	<h1>ARIA Visibility</h1>
+	<p>One, two, three,</p>
+	<p hidden>Me mother caught a flea,</p>
+	<p aria-hidden="true">She put it in the teapot</p>
+	<p>And made a cup of tea.</p>
+	<hr aria-hidden="true">
+	<code aria-hidden="true">
+		<pre>
+&lt;p&gt;One, two, three,&lt;/p&gt;
+&lt;p hidden&gt;Me mother caught a flea,&lt;/p&gt;
+&lt;p aria-hidden="true"&gt;She put it in the teapot&lt;/p&gt;
+&lt;p&gt;And made a cup of tea.&lt;/p&gt;
+		</pre>
+	</code>
+	<hr aria-hidden="true">
+	<ul>
+		<li><b>hidden</b>: hides element from screen & screen reader</li>
+		<li><b>aria-hidden="true"</b>: keeps elements visible, Voiceover skips</li>
+	</ul>
+</body>
+</html>
